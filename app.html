@@ -1,0 +1,34 @@
+<!DOCTYPE html><html><head></head><body>
+  
+      <div id="content"></div>
+
+</body><script>
+
+      let port = 8001;
+
+      let pc_list = `
+        office-pc
+        john-pc
+        tvroom-pc
+        garage
+        bedroom-pc
+        mixer
+      `;
+
+
+      let xhr = new XMLHttpRequest();
+
+      const startVnc = (pc) =>
+      {
+          xhr.open("GET", "http://localhost:" + port + "/" + pc);
+          xhr.send();
+      }
+
+      content.innerHTML = pc_list
+          .split('\n')
+          .map(v => v.trim())
+          .filter(v => v)
+          .map(v => `<button onClick="startVnc('${v}')">${v}</button>`)
+          .join('');
+
+</script></html>

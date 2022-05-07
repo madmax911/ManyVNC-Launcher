@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+export port=8001
+
+read -sp 'VNC password: ' VNC_PASSWORD
+export VNC_PASSWORD
+
+exo-open app.html &
+
+node server.js
