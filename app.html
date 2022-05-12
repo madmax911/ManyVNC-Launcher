@@ -1,17 +1,17 @@
 <!DOCTYPE html><html><head></head><body>
   
-      <div id="content"></div>
+      <div id="contents"></div>
 
 </body><script>
 
       let port = 8001;
 
       let pc_list = `
-        office-pc
         john-pc
-        tvroom-pc
-        garage
+        office-pc
         bedroom-pc
+        ----
+        garage
         mixer
       `;
 
@@ -24,11 +24,11 @@
           xhr.send();
       }
 
-      content.innerHTML = pc_list
+      contents.innerHTML = pc_list
           .split('\n')
           .map(v => v.trim())
           .filter(v => v)
-          .map(v => `<button onClick="startVnc('${v}')">${v}</button>`)
+          .map(v => v === '----' ? '<hr>' : `<button onClick="startVnc('${v}')">${v}</button>`)
           .join('');
 
 </script></html>
