@@ -3,8 +3,10 @@
 export port=8001
 
 read -sp 'VNC password: ' VNC_PASSWORD
+echo
 export VNC_PASSWORD
 
 exo-open app.html &
+disown
 
 node server.js
